@@ -95,7 +95,7 @@ export const worksList = [
         titleImage: "/works/odins/odins.svg",
         content: (
             <div>
-                <p className="mb-7 uppercase text-2xl bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text font-bold tracking-tight text-transparent">Odin's Shoes</p>
+                <p className="mb-7 uppercase text-2xl bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text font-bold tracking-tight text-transparent">Odin&apos;s Shoes</p>
                 <div className="grid grid-cols-2 gap-4">
                     <Image
                         src="/works/odins/odins1.webp"
@@ -113,7 +113,7 @@ export const worksList = [
                     />
                 </div>
                 <p className="text-xs md:text-base font-normal my-7">
-                    Odin's Shoes - website catalog of an assortment of shoes from the manufacturer of the trademark "Odin's Shoes".
+                    Odin&apos;s Shoes - website catalog of an assortment of shoes from the manufacturer of the trademark &quot;Odin&apos;s Shoes&quot;.
                 </p>
                 <ul className="flex items-center gap-4">
                     <li>
@@ -158,7 +158,7 @@ export const worksList = [
                     />
                 </div>
                 <p className="text-xs md:text-base font-normal my-7">
-                    The website for Piramid Space promotes the services of ТПК "Піраміда," a company that supports businesses by offering various solutions to enhance efficiency and productivity. It targets business owners, offering options to become a dealer or order a demo of their products.
+                    The website for Piramid Space promotes the services of ТПК &quot;Піраміда,&quot; a company that supports businesses by offering various solutions to enhance efficiency and productivity. It targets business owners, offering options to become a dealer or order a demo of their products.
                 </p>
                 <ul className="flex items-center gap-4">
                     <li>
