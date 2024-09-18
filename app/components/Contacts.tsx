@@ -24,7 +24,7 @@ function Contacts() {
                     transition={{ duration: 1.5, delay: 0.5 }}
                     className="mb-5 text-5xl text-center uppercase bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text tracking-tight text-transparent"
                 >
-                    let's get in touch
+                    let&apos;s get in touch
                 </motion.h5>
                 <div className="w-[40rem] h-40 relative">
                     {/* Gradients */}

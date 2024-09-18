@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 
 function Form() {
     const inputStyles = 'bg-[#000] outline-none border-[1px] border-[#121212] rounded-2xl px-[20px] py-[10px] focus:border-m-green-light duration-500';
-    const [isSent, setIsSent] = useState(false);
     const initInputState = {
         name: '',
         email: '',
@@ -56,8 +55,6 @@ function Form() {
                         </motion.button>
                     }
                 </AnimatePresence>
-
-                {isSent && <p className="mt-4 text-center text-m-md">✔ Sent</p>}
             </div>
         </motion.form>
     )
