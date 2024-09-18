@@ -2,26 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .text-glow-green {
+    text-shadow: 0 0 5px #00f00892, 0 0 10px #00f0086d;
+  }
+
+  /* WORD ANIMATION */
+  .svg-word {
+    max-height: 200px;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      max-height: 100px;
+    }
+
+    @media (max-width: 510px) {
+      max-height: 85px;
+    }
+  }
+
+  .text {
+    width: fit-content;
+    animation: stroke 3s alternate;
+    stroke-width: 1;
+    fill: rgb(209 213 219);
+  }
+
+  .text_delay {
+    animation-delay: 2s;
+  }
+
+  @keyframes stroke {
+    0% {
+      fill: rgba(0, 255, 0, 0);
+      stroke: rgba(0, 255, 0, 1);
+      stroke-dashoffset: 25%;
+      stroke-dasharray: 0 50%;
+      stroke-width: 0.5;
+    }
+
+    70% {
+      fill: rgba(0, 255, 0, 0);
+      stroke: rgba(0, 255, 0, 1);
+    }
+
+    80% {
+      fill: rgba(0, 255, 0, 0);
+      stroke: rgba(0, 255, 0, 1);
+      stroke-width: 1;
+    }
+
+    100% {
+      fill: rgb(255, 255, 255);
+      stroke: rgba(0, 255, 0, 0);
+      stroke-dashoffset: -25%;
+      stroke-dasharray: 50% 0;
+      stroke-width: 0;
+    }
+  }
+
+  /* TYPEWRITER EFECT */
+  .typewriter {
+    max-width: fit-content;
+    overflow: hidden;
+    border-right: .15em solid #0F0;
+    white-space: nowrap;
+    letter-spacing: .15em;
+    animation:
+      typing 6s steps(100, end),
+      blink-caret 1s step-end infinite;
+  }
+
+  @keyframes typing {
+
+    10%,
+    70% {
+      width: 0
+    }
+
+    100% {
+      width: 100%
+    }
+  }
+
+  @keyframes blink-caret {
+
+    from,
+    to {
+      border-color: transparent
+    }
+
+    50% {
+      border-color: #0F0
+    }
   }
 }
