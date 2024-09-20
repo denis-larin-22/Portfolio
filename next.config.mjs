@@ -6,6 +6,11 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'assets.aceternity.com',
                 port: '',
+            },
+            {
+                protocol: 'https',
+                hostname: 'aceternity.com',
+                port: '',
             }
         ],
     },

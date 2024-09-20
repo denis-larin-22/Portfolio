@@ -22,7 +22,7 @@ function AboutMe() {
 
     return (
         <section>
-            <LampContainer className="h-[50dvh]">
+            {/* <LampContainer className="h-[50dvh]">
                 <div ref={refLamp}>
                     <motion.h2
                         initial={{ opacity: 0, y: 100, scale: 1.1 }}
@@ -33,7 +33,7 @@ function AboutMe() {
                         dive into the world of the web with me
                     </motion.h2>
                 </div>
-            </LampContainer>
+            </LampContainer> */}
 
             <article
                 id="about"

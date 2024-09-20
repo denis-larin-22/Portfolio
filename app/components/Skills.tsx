@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import TagWrap from "./ui/TagWrap";
 import { ISkillIcon, skillsIcons } from "../lib/data/skills-icons";
 import { greenGradientText, slateBgText } from "../lib/text-styles";
+import { HeroParallax } from "./ui/SkillsParallax";
 
 function Skills() {
     const skillsBySections = [
@@ -49,8 +50,8 @@ function Skills() {
     });
 
     return (
-        <section id="skills" ref={refSkills} className="container min-h-screen mx-auto mt-9 md:mt-40 flex flex-col ">
-            <TagWrap tag='h3' className="mt-4" appearanceDelay={1}>
+        <section id="skills" ref={refSkills} className="min-h-screen mx-auto mt-9 md:mt-40 flex flex-col ">
+            <TagWrap tag='h3' className="mt-4 container" appearanceDelay={1}>
                 <motion.h3
                     style={getInViewSkills(0.5)}
                     className={slateBgText + " text-[78px] font-bold pb-4"}
@@ -59,7 +60,9 @@ function Skills() {
                 </motion.h3>
             </TagWrap>
 
-            <div className="max-w-[1000px] mx-auto w-full flex items-center justify-between">
+            <HeroParallax products={products} />;
+
+            {/* <div className="container mx-auto w-full flex items-center justify-between">
                 <TagWrap tag='ul' className="flex flex-col gap-5 mt-5" appearanceDelay={1}>
                     <div className="grid grid-cols-4 gap-7">
                         {skillsIcons.map((item, index) => (
@@ -96,9 +99,9 @@ function Skills() {
                         </h2>
                     </motion.div>
                 }
-            </div>
+            </div> */}
             <TagWrap tag="section" className="my-10" appearanceDelay={1}>
-                <div ref={refGroups} className="flex justify-around">
+                <div ref={refGroups} className="flex flex-col md:flex-row justify-around">
                     {skillsBySections.map((skill, index) => (
                         <motion.div
                             key={skill.title}
@@ -128,3 +131,101 @@ function Skills() {
 };
 
 export default Skills;
+
+export const products = [
+    {
+        title: "Figma",
+        link: "https://www.figma.com/",
+        thumbnail:
+            "/icons/figma.svg",
+    },
+
+    {
+        title: "Firebase",
+        link: "https://firebase.google.com/",
+        thumbnail:
+            "/icons/firebase.svg",
+    },
+    {
+        title: "React JS",
+        link: "https://ru.legacy.reactjs.org/",
+        thumbnail:
+            "/icons/react.svg",
+    },
+
+    {
+        title: "Next JS",
+        link: "https://nextjs.org/",
+        thumbnail:
+            "/icons/nextjs.svg",
+    },
+    {
+        title: "Redux",
+        link: "https://redux.js.org/",
+        thumbnail:
+            "/icons/redux.svg",
+    },
+    {
+        title: "Tailwind CSS",
+        link: "https://tailwindcss.com/",
+        thumbnail:
+            "/icons/tailwindcss.svg",
+    },
+
+    {
+        title: "Framer Motion",
+        link: "https://www.framer.com/motion/",
+        thumbnail:
+            "/icons/framer.svg",
+    },
+    {
+        title: "JavaScript",
+        link: "https://ru.wikipedia.org/wiki/JavaScript",
+        thumbnail:
+            "/icons/javascript.svg",
+    },
+    {
+        title: "TypeScript",
+        link: "https://www.typescriptlang.org/",
+        thumbnail:
+            "/icons/typescript.svg",
+    },
+
+    {
+        title: "Next UI",
+        link: "https://nextui.org/",
+        thumbnail:
+            "/icons/nextui.svg",
+    },
+    {
+        title: "Bootstrap",
+        link: "https://getbootstrap.com/",
+        thumbnail:
+            "/icons/bootstrap.svg",
+    },
+
+    {
+        title: "Sass/Scss",
+        link: "https://sass-lang.com/",
+        thumbnail:
+            "/icons/sass.svg",
+    },
+    {
+        title: "GitHub",
+        link: "https://github.com/",
+        thumbnail:
+            "/icons/github.svg",
+    },
+    {
+        title: "Contentful",
+        link: "https://www.contentful.com/",
+        thumbnail:
+            "/icons/contentful.svg",
+    },
+    {
+        title: "npm",
+        link: "https://www.npmjs.com/",
+        thumbnail:
+            "/icons/npm.svg",
+    },
+];
