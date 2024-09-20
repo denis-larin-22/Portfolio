@@ -1,9 +1,8 @@
 'use client'
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import TagWrap from "./ui/TagWrap";
-import { ISkillIcon, skillsIcons } from "../lib/data/skills-icons";
 import { greenGradientText, slateBgText } from "../lib/text-styles";
 import { HeroParallax } from "./ui/SkillsParallax";
 
@@ -31,7 +30,6 @@ function Skills() {
         }
     ]
 
-    const [activeSkill, setActiveSkill] = useState<null | ISkillIcon>(null);
     // Skills
     const refSkills = useRef(null);
     const isInViewSkills = useInView(refSkills, { once: true });

@@ -1,16 +1,11 @@
 'use client'
 
 import { useRef } from "react";
-import { LampContainer } from "./ui/Lamp";
 import TagWrap from "./ui/TagWrap";
 import { motion, useInView } from "framer-motion";
 import { greenGradientText, slateBgText } from "../lib/text-styles";
 
 function AboutMe() {
-    // Lamp wrap
-    const refLamp = useRef(null);
-    const isInViewLamp = useInView(refLamp, { once: true });
-
     // About me wrap
     const refAboutMe = useRef(null);
     const isInViewAboutMe = useInView(refAboutMe, { once: true });
