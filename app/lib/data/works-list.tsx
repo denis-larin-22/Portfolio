@@ -5,7 +5,10 @@ export const worksList = [
         titleImage: "/works/hlegal/hlegal.svg",
         content: (
             <div>
-                <p className="mb-7 uppercase text-2xl bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text font-bold tracking-tight text-transparent">hlegal</p>
+                <p className="uppercase text-2xl bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text font-bold tracking-tight text-transparent">hlegal</p>
+                <p className="text-xs md:text-base font-normal my-7">
+                    Hlegal - a multi-page website project on pure HTML and CSS using SCSS preprocessor and Bootstrap 5.
+                </p>
                 <div className="grid grid-cols-2 gap-4">
                     <Image
                         src="/works/hlegal/hlegal2.webp"
@@ -22,10 +25,7 @@ export const worksList = [
                         className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full brightness-75 hover:brightness-100 duration-150"
                     />
                 </div>
-                <p className="text-xs md:text-base font-normal my-7">
-                    Hlegal - a multi-page website project on pure HTML and CSS using SCSS preprocessor and Bootstrap 5.
-                </p>
-                <ul className="flex items-center gap-4">
+                <ul className="my-7 flex items-center gap-4">
                     <li>
                         <img src="/icons/html.svg" alt="HTML" className="w-10 h-10" />
                     </li>
@@ -39,7 +39,7 @@ export const worksList = [
                         <img src="/icons/bootstrap-purple.svg" alt="Bootstrap" className="w-10 h-10" />
                     </li>
                 </ul>
-                <div className="mt-7 flex items-center gap-2">
+                <div className="flex items-center gap-2">
                     <a href="https://github.com/denis-larin-22/hlegal_final_hillel_project" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-40 h-10 rounded-md border-2 border-slate-100">Open repository</a>
                     <a href="https://denis-larin-22.github.io/hlegal_final_hillel_project/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-40 h-10 rounded-md bg-slate-100 text-black">Visit</a>
                 </div>

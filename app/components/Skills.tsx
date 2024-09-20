@@ -5,6 +5,7 @@ import { useRef } from "react";
 import TagWrap from "./ui/TagWrap";
 import { greenGradientText, slateBgText } from "../lib/text-styles";
 import { HeroParallax } from "./ui/SkillsParallax";
+import Image from "next/image";
 
 function Skills() {
     const skillsBySections = [
@@ -48,29 +49,45 @@ function Skills() {
     });
 
     return (
-        <section id="skills" ref={refSkills} className="min-h-screen mx-auto mt-9 md:mt-40 flex flex-col ">
+        <section id="skills" ref={refSkills} className="relative min-h-screen mx-auto mt-9 md:mt-40 flex flex-col ">
             <TagWrap tag='h3' className="container flex flex-col gap-2" appearanceDelay={1}>
                 <motion.h3
                     style={getInViewSkills(0.2)}
-                    className={slateBgText + " text-5xl lg:text-[78px] font-bold"}
+                    className={slateBgText + " text-5xl lg:text-[78px] font-bold pb-2"}
                 >
                     <span className={greenGradientText}>M</span>y sk<span className={greenGradientText}>i</span>lls
                 </motion.h3>
             </TagWrap>
 
-            <HeroParallax products={products} />
+            <div className="hidden lg:block">
+                <HeroParallax products={products} />
+            </div>
+            <div className="block lg:hidden h-full w-full overflow-x-hidden absolute top-[10%]">
+                <ul className="grid grid-cols-4 gap-5 rotate-[25deg] relative top-[15%] z-0 scale-125 opacity-10">
+                    {products.map((product) => (
+                        <li key={product.title}>
+                            <Image
+                                alt={product.title}
+                                src={product.thumbnail}
+                                width={70}
+                                height={70}
+                            />
+                        </li>
+                    ))}
+                </ul>
+            </div>
 
-            <TagWrap tag="section" className="my-10" appearanceDelay={1}>
-                <div ref={refGroups} className="flex flex-col md:flex-row justify-around">
+            <TagWrap tag="section" className="container my-10" appearanceDelay={1}>
+                <div ref={refGroups} className="flex flex-wrap gap-4 justify-between mb-5">
                     {skillsBySections.map((skill, index) => (
                         <motion.div
                             key={skill.title}
                             className="relative flex flex-col"
                             style={getInViewGroups(0.3 + (index / 10))}
                         >
-                            <p className={greenGradientText + " relative z-10 text-4xl font-bold my-10"}>{skill.title}</p>
-                            <img src={skill.icon} alt="Icon" className="absolute top-0 left-3/4 w-24 h-2w-24 z-0 brightness-[5%]" />
-                            <ul className="relative z-10 text-xl font-semibold text-slate-400 flex flex-col gap-1">
+                            <p className={greenGradientText + " relative z-10 text-2xl lg:text-4xl font-bold my-5 lg:my-10"}>{skill.title}</p>
+                            <img src={skill.icon} alt="Icon" className="hidden lg:inline-block absolute top-0 right-0 lg:left-3/4 w-12 lg:w-24 h-12 lg:h-24 z-0 brightness-[5%]" />
+                            <ul className="relative z-10 text-md lg:text-xl font-semibold text-slate-400 flex flex-col gap-1">
                                 {skill.list.map((item, index) => (
                                     <motion.li
                                         key={index}
@@ -126,17 +143,16 @@ export const products = [
             "/icons/redux.svg",
     },
     {
-        title: "Tailwind CSS",
-        link: "https://tailwindcss.com/",
-        thumbnail:
-            "/icons/tailwindcss.svg",
-    },
-
-    {
         title: "Framer Motion",
         link: "https://www.framer.com/motion/",
         thumbnail:
             "/icons/framer.svg",
+    },
+    {
+        title: "Tailwind CSS",
+        link: "https://tailwindcss.com/",
+        thumbnail:
+            "/icons/tailwindcss.svg",
     },
     {
         title: "JavaScript",
@@ -150,7 +166,6 @@ export const products = [
         thumbnail:
             "/icons/typescript.svg",
     },
-
     {
         title: "Next UI",
         link: "https://nextui.org/",

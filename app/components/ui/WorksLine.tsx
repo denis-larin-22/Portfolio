@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import TagWrap from "./TagWrap";
+import { slateBgText } from "@/app/lib/text-styles";
 
 interface TimelineEntry {
     titleImage: string;
@@ -39,27 +40,25 @@ export const WorksLine = ({ data }: { data: TimelineEntry[] }) => {
     return (
         <div
             id="works"
-            className="w-full md:px-10 mt-[350px]"
+            className="container"
             ref={containerRef}
         >
-            <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
-                <TagWrap tag="h4" className="container pt-4" appearanceDelay={1}>
-                    <motion.h4
-                        initial={{ y: 50, opacity: 0, scale: 1.1 }}
-                        animate={isInView && { y: 0, opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.5 }}
-                        className="bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text text-[78px] font-bold tracking-tight text-transparent"
-                    >
-                        Wo<span className="bg-gradient-to-br from-black to-m-green bg-clip-text tracking-tight text-transparent">r</span>ks
-                    </motion.h4>
-                </TagWrap>
-            </div>
+            <TagWrap tag="h4" className="" appearanceDelay={1}>
+                <motion.h4
+                    initial={{ y: 50, opacity: 0, scale: 1.1 }}
+                    animate={isInView && { y: 0, opacity: 1, scale: 1 }}
+                    transition={{ duration: 1 }}
+                    className={slateBgText + " text-5xl lg:text-[78px] font-bold pb-2"}
+                >
+                    Wo<span className="bg-gradient-to-br from-black to-m-green bg-clip-text tracking-tight text-transparent">r</span>ks
+                </motion.h4>
+            </TagWrap>
 
             <motion.div
                 ref={ref}
                 initial={{ opacity: 0 }}
                 animate={isInView && { opacity: 1 }}
-                transition={{ duration: 1.5, delay: 1.5 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
                 className="relative max-w-7xl mx-auto pb-20"
             >
                 {data.map((item, index) => (
