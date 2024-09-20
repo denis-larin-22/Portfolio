@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
     motion,
@@ -22,6 +22,21 @@ export const HeroParallax = ({
         thumbnail: string;
     }[];
 }) => {
+    const [scrollSettings, setScrollSettings] = useState<[number, number]>([-700, 500]);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const currentWidth = window.innerWidth;
+
+            if (currentWidth < 1024) {
+                setScrollSettings([-200, 50]);
+            }
+            return;
+        };
+
+        handleResize();
+    }, []);
+
     const firstRow = products.slice(0, 5);
     const secondRow = products.slice(5, 10);
     const thirdRow = products.slice(10, 15);
@@ -31,7 +46,7 @@ export const HeroParallax = ({
         offset: ["start start", "end start"],
     });
 
-    const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+    const springConfig = { stiffness: 200, damping: 20, bounce: 50 };
 
     const translateX = useSpring(
         useTransform(scrollYProgress, [0, 1], [0, 1000]),
@@ -54,13 +69,13 @@ export const HeroParallax = ({
         springConfig
     );
     const translateY = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+        useTransform(scrollYProgress, [0, 0.2], scrollSettings),
         springConfig
     );
     return (
         <div
             ref={ref}
-            className="h-[300vh] max-w-[1920px] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+            className="h-[dvh] lg:h-[300vh] max-w-screen lg:max-w-[1920px] pb-12 lg:py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
         >
             <Header />
             <motion.div
@@ -134,7 +149,7 @@ export const ProductCard = ({
                 x: translate,
             }}
             key={product.title}
-            className="group mt-5 h-full w-[25rem] relative flex-shrink-0"
+            className="group mt-5 h-[12rem] lg:h-full w-[12rem] lg:w-[25rem] relative flex-shrink-0"
         >
             <Link
                 href={product.link}
@@ -142,13 +157,12 @@ export const ProductCard = ({
             >
                 <Image
                     src={product.thumbnail}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     height="600"
                     width="600"
-                    className="object-cover w-full h-full opacity-65 group-hover:opacity-15 duration-150"
                     alt={product.title}
                 />
             </Link>
-            {/* <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div> */}
             <p className={slateBgText + " opacity-0 group-hover:opacity-100 duration-150 absolute -bottom-4 group-hover:bottom-4 left-4 z-10 text-2xl"}>
                 {product.title}
             </p>

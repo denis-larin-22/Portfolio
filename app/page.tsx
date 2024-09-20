@@ -14,10 +14,8 @@ export default function Home() {
     <div >
       <MatrixBackground />
 
-      <div className="min-h-dvh">
-        <Header />
-        <Main />
-      </div>
+      <Header />
+      <Main />
       <AboutMe />
       <Skills />
       <Works />

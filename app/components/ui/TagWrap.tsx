@@ -25,7 +25,7 @@ function TagWrap({ children, tag, className = "", appearanceDelay = 0 }: IProps)
             </motion.p>
             {children}
             <motion.p
-                className={tagStyles + " text-lg text-m-grey-tag leading-none mt-2"}
+                className={tagStyles + " text-lg text-m-grey-tag leading-none mt-1 md:mt-2"}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: appearanceDelay }}
