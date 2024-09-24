@@ -126,7 +126,7 @@ export const InfiniteMovingCards = ({
                             <div className="relative z-20 mt-6 flex flex-col gap-5">
                                 <span className="inline-flex gap-0.5">
                                     {[1, 2, 3, 4, 5].map((item) => (
-                                        <img src="/icons/star.svg" alt="Star icon" className="w-4 h-4" />
+                                        <img key={item} src="/icons/star.svg" alt="Star icon" className="w-4 h-4" />
                                     ))}
                                 </span>
                                 <span className="flex flex-col gap-1">

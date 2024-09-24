@@ -1,8 +1,6 @@
 import { poppinsFont } from "../fonts";
-import { links } from "../lib/data/links-list";
 import GradientLine from "./ui/GradientLine";
 import Links from "./ui/Links";
-import TagWrap from "./ui/TagWrap";
 
 export const Footer = () => {
     const itemStyles = "flex items-center gap-x-2 text-slate-300 opacity-60 hover:opacity-100 duration-150";
