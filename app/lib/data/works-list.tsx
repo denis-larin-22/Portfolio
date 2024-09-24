@@ -126,7 +126,7 @@ export const worksList = [
                         <img src="/icons/tailwindcss.svg" alt="Tailwind CSS" className="w-10 h-10" />
                     </li>
                     <li>
-                        <img src="/icons/nextui.svg" alt="NextUI" className="w-10 h-10 bg-white rounded-md" />
+                        <img src="/icons/nextui.svg" alt="NextUI" className="w-10 h-10" />
                     </li>
                 </ul>
                 <div className="mt-7 flex items-center gap-2">
@@ -172,8 +172,7 @@ export const worksList = [
                     </li>
                 </ul>
                 <div className="mt-7 flex items-center gap-2">
-                    <a href="https://github.com/denis-larin-22/piramid-space" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-40 h-10 rounded-md border-2 border-slate-100">Open repository</a>
-                    <a href="https://piramid-space.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-40 h-10 rounded-md bg-slate-100 text-black">Visit</a>
+                    <a href="https://piramidspace.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-40 h-10 rounded-md bg-slate-100 text-black">Visit</a>
                 </div>
             </div>
         ),

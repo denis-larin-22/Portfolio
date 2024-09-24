@@ -1,81 +1,104 @@
-export interface ISkillIcon {
-    name: string;
-    icon: string;
+export interface ISkillIconItem {
+    title: string;
     link: string;
-    bg: boolean;
-}
+    thumbnail: string;
+};
 
-export const skillsIcons: ISkillIcon[] = [
+export type SkillIconsList = ISkillIconItem[];
+
+
+export const skillsIcons: SkillIconsList = [
     {
-        name: "JavaScript",
-        icon: "/icons/javascript.svg",
-        link: "https://ru.wikipedia.org/wiki/JavaScript",
-        bg: false
+        title: "Figma",
+        link: "https://www.figma.com/",
+        thumbnail:
+            "/icons/figma.svg",
     },
+
     {
-        name: "TypeScript",
-        icon: "/icons/typescript.svg",
-        link: "https://www.typescriptlang.org/",
-        bg: false
-    },
-    {
-        name: "React JS",
-        icon: "/icons/react.svg",
-        link: "https://ru.legacy.reactjs.org/",
-        bg: false
-    },
-    {
-        name: "Next JS",
-        icon: "/icons/nextjs.svg",
-        link: "https://nextjs.org/",
-        bg: false
-    },
-    {
-        name: "Redux",
-        icon: "/icons/redux.svg",
-        link: "https://redux.js.org/",
-        bg: false
-    },
-    {
-        name: "Tailwind CSS",
-        icon: "/icons/tailwindcss.svg",
-        link: "https://tailwindcss.com/",
-        bg: false
-    },
-    {
-        name: "Framer Motion",
-        icon: "/icons/framer.svg",
-        link: "https://www.framer.com/motion/",
-        bg: false
-    },
-    {
-        name: "Contentful",
-        icon: "/icons/contentful.svg",
-        link: "https://www.contentful.com/",
-        bg: false
-    },
-    {
-        name: "Firebase",
-        icon: "/icons/firebase.svg",
+        title: "Firebase",
         link: "https://firebase.google.com/",
-        bg: false
+        thumbnail:
+            "/icons/firebase.svg",
     },
     {
-        name: "Next UI",
-        icon: "/icons/nextui.svg",
+        title: "React JS",
+        link: "https://ru.legacy.reactjs.org/",
+        thumbnail:
+            "/icons/react.svg",
+    },
+
+    {
+        title: "Next JS",
+        link: "https://nextjs.org/",
+        thumbnail:
+            "/icons/nextjs.svg",
+    },
+    {
+        title: "Redux",
+        link: "https://redux.js.org/",
+        thumbnail:
+            "/icons/redux.svg",
+    },
+    {
+        title: "Next UI",
         link: "https://nextui.org/",
-        bg: true
+        thumbnail:
+            "/icons/nextui.svg",
     },
     {
-        name: "Bootstrap",
-        icon: "/icons/bootstrap.svg",
+        title: "Tailwind CSS",
+        link: "https://tailwindcss.com/",
+        thumbnail:
+            "/icons/tailwindcss.svg",
+    },
+    {
+        title: "JavaScript",
+        link: "https://ru.wikipedia.org/wiki/JavaScript",
+        thumbnail:
+            "/icons/javascript.svg",
+    },
+    {
+        title: "TypeScript",
+        link: "https://www.typescriptlang.org/",
+        thumbnail:
+            "/icons/typescript.svg",
+    },
+    {
+        title: "Framer Motion",
+        link: "https://www.framer.com/motion/",
+        thumbnail:
+            "/icons/framer.svg",
+    },
+    {
+        title: "Bootstrap",
         link: "https://getbootstrap.com/",
-        bg: true
+        thumbnail:
+            "/icons/bootstrap.svg",
+    },
+
+    {
+        title: "Sass/Scss",
+        link: "https://sass-lang.com/",
+        thumbnail:
+            "/icons/sass.svg",
     },
     {
-        name: "Sass/Scss",
-        icon: "/icons/sass.svg",
-        link: "https://sass-lang.com/",
-        bg: false
+        title: "GitHub",
+        link: "https://github.com/",
+        thumbnail:
+            "/icons/github.svg",
+    },
+    {
+        title: "Contentful",
+        link: "https://www.contentful.com/",
+        thumbnail:
+            "/icons/contentful.svg",
+    },
+    {
+        title: "npm",
+        link: "https://www.npmjs.com/",
+        thumbnail:
+            "/icons/npm.svg",
     },
 ];

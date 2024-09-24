@@ -6,6 +6,8 @@ import TagWrap from "./ui/TagWrap";
 import { greenGradientText, slateBgText } from "../lib/text-styles";
 import { HeroParallax } from "./ui/SkillsParallax";
 import Image from "next/image";
+import { skillsIcons } from "../lib/data/skills-icons";
+import { poppinsFont } from "../fonts";
 
 function Skills() {
     const skillsBySections = [
@@ -59,23 +61,29 @@ function Skills() {
                 </motion.h3>
             </TagWrap>
 
-            <div className="hidden lg:block">
-                <HeroParallax products={products} />
-            </div>
-            <div className="block lg:hidden h-full w-full overflow-x-hidden absolute top-[10%]">
-                <ul className="grid grid-cols-4 gap-5 rotate-[25deg] relative top-[15%] z-0 scale-125 opacity-10">
-                    {products.map((product) => (
-                        <li key={product.title}>
-                            <Image
-                                alt={product.title}
-                                src={product.thumbnail}
-                                width={70}
-                                height={70}
-                            />
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            <motion.div
+                initial={{ opacity: 0, y: 150 }}
+                animate={isInViewSkills && { opacity: 1, y: 0 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+            >
+                <div className="hidden lg:block">
+                    <HeroParallax list={skillsIcons} />
+                </div>
+                <div className="block lg:hidden h-full w-full overflow-x-hidden absolute top-[10%]">
+                    <ul className="grid grid-cols-4 gap-5 rotate-[25deg] relative top-[15%] z-0 scale-125 opacity-10">
+                        {skillsIcons.map((skill) => (
+                            <li key={skill.title}>
+                                <Image
+                                    alt={skill.title}
+                                    src={skill.thumbnail}
+                                    width={70}
+                                    height={70}
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </motion.div>
 
             <TagWrap tag="section" className="container my-10" appearanceDelay={1}>
                 <div ref={refGroups} className="flex flex-wrap gap-4 justify-between mb-5">
@@ -85,9 +93,9 @@ function Skills() {
                             className="relative flex flex-col"
                             style={getInViewGroups(0.3 + (index / 10))}
                         >
-                            <p className={greenGradientText + " relative z-10 text-2xl lg:text-4xl font-bold my-5 lg:my-10"}>{skill.title}</p>
+                            <p className={greenGradientText + " relative z-10 text-2xl lg:text-4xl text-center font-bold my-5 lg:my-10"}>{skill.title}</p>
                             <img src={skill.icon} alt="Icon" className="hidden lg:inline-block absolute top-0 right-0 lg:left-3/4 w-12 lg:w-24 h-12 lg:h-24 z-0 brightness-[5%]" />
-                            <ul className="relative z-10 text-md lg:text-xl font-semibold text-slate-400 flex flex-col gap-1">
+                            <ul className={poppinsFont.className + " relative z-10 text-md lg:text-xl font-normal text-slate-400 flex flex-col items-center gap-1 cursor-default"}>
                                 {skill.list.map((item, index) => (
                                     <motion.li
                                         key={index}
@@ -108,99 +116,3 @@ function Skills() {
 };
 
 export default Skills;
-
-export const products = [
-    {
-        title: "Figma",
-        link: "https://www.figma.com/",
-        thumbnail:
-            "/icons/figma.svg",
-    },
-
-    {
-        title: "Firebase",
-        link: "https://firebase.google.com/",
-        thumbnail:
-            "/icons/firebase.svg",
-    },
-    {
-        title: "React JS",
-        link: "https://ru.legacy.reactjs.org/",
-        thumbnail:
-            "/icons/react.svg",
-    },
-
-    {
-        title: "Next JS",
-        link: "https://nextjs.org/",
-        thumbnail:
-            "/icons/nextjs.svg",
-    },
-    {
-        title: "Redux",
-        link: "https://redux.js.org/",
-        thumbnail:
-            "/icons/redux.svg",
-    },
-    {
-        title: "Framer Motion",
-        link: "https://www.framer.com/motion/",
-        thumbnail:
-            "/icons/framer.svg",
-    },
-    {
-        title: "Tailwind CSS",
-        link: "https://tailwindcss.com/",
-        thumbnail:
-            "/icons/tailwindcss.svg",
-    },
-    {
-        title: "JavaScript",
-        link: "https://ru.wikipedia.org/wiki/JavaScript",
-        thumbnail:
-            "/icons/javascript.svg",
-    },
-    {
-        title: "TypeScript",
-        link: "https://www.typescriptlang.org/",
-        thumbnail:
-            "/icons/typescript.svg",
-    },
-    {
-        title: "Next UI",
-        link: "https://nextui.org/",
-        thumbnail:
-            "/icons/nextui.svg",
-    },
-    {
-        title: "Bootstrap",
-        link: "https://getbootstrap.com/",
-        thumbnail:
-            "/icons/bootstrap.svg",
-    },
-
-    {
-        title: "Sass/Scss",
-        link: "https://sass-lang.com/",
-        thumbnail:
-            "/icons/sass.svg",
-    },
-    {
-        title: "GitHub",
-        link: "https://github.com/",
-        thumbnail:
-            "/icons/github.svg",
-    },
-    {
-        title: "Contentful",
-        link: "https://www.contentful.com/",
-        thumbnail:
-            "/icons/contentful.svg",
-    },
-    {
-        title: "npm",
-        link: "https://www.npmjs.com/",
-        thumbnail:
-            "/icons/npm.svg",
-    },
-];

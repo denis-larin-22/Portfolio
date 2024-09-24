@@ -1,9 +1,17 @@
+'use client'
+
 import { poppinsFont } from "../fonts";
 import { links } from "../lib/data/links-list";
+import { motion } from "framer-motion";
 
 function Header() {
     return (
-        <header className="container flex items-center justify-between py-5">
+        <motion.header
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 2 }}
+            className="container flex items-center justify-between py-5"
+        >
             <div className="flex items-center gap-4">
                 <img
                     src="/images/avatar.webp"
@@ -36,7 +44,7 @@ function Header() {
                 EN
                 <img src="/images/language-icon.svg" alt="Laguage button" className="fill-m-green" />
             </button>
-        </header>
+        </motion.header>
     )
 };
 

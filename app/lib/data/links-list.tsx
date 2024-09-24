@@ -16,7 +16,7 @@ export const links = [
         link: "#reviews"
     },
     {
-        text: "Blog",
-        link: "https://denis-larin-22.github.io/my-blog/"
+        text: "Contacts",
+        link: "#contacts"
     },
 ];

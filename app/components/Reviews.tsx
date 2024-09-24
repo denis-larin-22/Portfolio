@@ -11,30 +11,30 @@ export function Reviews() {
     const isInView = useInView(ref, { once: true });
 
     return (
-        <section ref={ref} id="reviews">
-            <TagWrap tag="section" className="container mt-60" appearanceDelay={1.5}>
-                <motion.p
+        <section ref={ref} id="reviews" className="container mt-10">
+            <TagWrap tag="h5" appearanceDelay={1.5}>
+                <motion.h5
                     initial={{ opacity: 0, y: 100, scale: 1.1 }}
                     animate={isInView && { opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 1 }}
-                    className={slateBgText + " text-[78px] font-bold"}
+                    className={slateBgText + " text-5xl lg:text-[78px] font-bold pb-2"}
                 >
                     <span className={greenGradientText}>R</span>ev<span className={greenGradientText}>i</span>ews
-                </motion.p>
-                <motion.section
-                    initial={{ opacity: 0 }}
-                    animate={isInView && { opacity: 1 }}
-                    transition={{ duration: 2, delay: 1 }}
-                    className="mt-28 rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden"
-                >
-                    <InfiniteMovingCards
-                        items={testimonials}
-                        direction="right"
-                        speed="slow"
-                    />
-                </motion.section>
+                </motion.h5>
             </TagWrap>
-        </section>
+            <motion.section
+                initial={{ opacity: 0 }}
+                animate={isInView && { opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="mt-28 rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden"
+            >
+                <InfiniteMovingCards
+                    items={testimonials}
+                    direction="right"
+                    speed="slow"
+                />
+            </motion.section>
+        </section >
     );
 }
 

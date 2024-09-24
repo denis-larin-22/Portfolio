@@ -43,7 +43,7 @@ export const WorksLine = ({ data }: { data: TimelineEntry[] }) => {
             className="container"
             ref={containerRef}
         >
-            <TagWrap tag="h4" className="" appearanceDelay={1}>
+            <TagWrap tag="h4" appearanceDelay={1}>
                 <motion.h4
                     initial={{ y: 50, opacity: 0, scale: 1.1 }}
                     animate={isInView && { y: 0, opacity: 1, scale: 1 }}

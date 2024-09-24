@@ -14,17 +14,17 @@ import Link from "next/link";
 import { slateBgText } from "@/app/lib/text-styles";
 
 export const HeroParallax = ({
-    products,
+    list,
 }: {
-    products: {
+    list: {
         title: string;
         link: string;
         thumbnail: string;
     }[];
 }) => {
-    const firstRow = products.slice(0, 5);
-    const secondRow = products.slice(5, 10);
-    const thirdRow = products.slice(10, 15);
+    const firstRow = list.slice(0, 5);
+    const secondRow = list.slice(5, 10);
+    const thirdRow = list.slice(10, 15);
     const ref = React.useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -73,29 +73,29 @@ export const HeroParallax = ({
                 className=""
             >
                 <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-                    {firstRow.map((product) => (
-                        <ProductCard
-                            product={product}
+                    {firstRow.map((item) => (
+                        <Card
+                            item={item}
                             translate={translateX}
-                            key={product.title}
+                            key={item.title}
                         />
                     ))}
                 </motion.div>
                 <motion.div className="flex flex-row  mb-20 space-x-20 ">
-                    {secondRow.map((product) => (
-                        <ProductCard
-                            product={product}
+                    {secondRow.map((item) => (
+                        <Card
+                            item={item}
                             translate={translateXReverse}
-                            key={product.title}
+                            key={item.title}
                         />
                     ))}
                 </motion.div>
                 <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-                    {thirdRow.map((product) => (
-                        <ProductCard
-                            product={product}
+                    {thirdRow.map((item) => (
+                        <Card
+                            item={item}
                             translate={translateX}
-                            key={product.title}
+                            key={item.title}
                         />
                     ))}
                 </motion.div>
@@ -117,11 +117,11 @@ export const Header = () => {
     );
 };
 
-export const ProductCard = ({
-    product,
+export const Card = ({
+    item,
     translate,
 }: {
-    product: {
+    item: {
         title: string;
         link: string;
         thumbnail: string;
@@ -133,23 +133,23 @@ export const ProductCard = ({
             style={{
                 x: translate,
             }}
-            key={product.title}
+            key={item.title}
             className="group mt-5 h-full w-[20rem] relative flex-shrink-0"
         >
             <Link
-                href={product.link}
+                href={item.link}
                 className="block "
             >
                 <Image
-                    src={product.thumbnail}
+                    src={item.thumbnail}
                     height="600"
                     width="600"
                     className="object-cover w-full h-full opacity-65 group-hover:opacity-15 duration-150"
-                    alt={product.title}
+                    alt={item.title}
                 />
             </Link>
             <p className={slateBgText + " opacity-0 group-hover:opacity-100 duration-150 absolute -bottom-4 group-hover:bottom-4 left-4 z-10 text-3xl"}>
-                {product.title}
+                {item.title}
             </p>
         </motion.div>
     );
