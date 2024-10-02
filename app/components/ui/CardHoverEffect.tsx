@@ -1,7 +1,5 @@
 import { cn } from "@/app/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { p } from "framer-motion/client";
-import Link from "next/link";
 import { useState } from "react";
 
 export const HoverEffect = ({
@@ -74,7 +72,7 @@ export const HoverEffect = ({
             ))}
         </div>
     );
-};
+}
 
 export const Card = ({
     className,
