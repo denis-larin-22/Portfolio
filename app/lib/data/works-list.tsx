@@ -7,7 +7,7 @@ export const worksList = [
             <div>
                 <img src="/works/hlegal/hlegal.svg" alt="" className="inline lg:hidden w-12 h-12 mb-5" />
                 <p className="hidden lg:inline uppercase text-2xl bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text font-bold tracking-tight text-transparent">hlegal</p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 mt-5">
                     <Image
                         src="/works/hlegal/hlegal2.webp"
                         alt="Website screenshot"
@@ -53,7 +53,7 @@ export const worksList = [
             <div>
                 <img src="/works/jmb/julia-beauty.svg" alt="" className="inline lg:hidden w-12 h-12 mb-5" />
                 <p className="hidden lg:inline uppercase text-2xl bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text font-bold tracking-tight text-transparent">Julia Magic Beauty</p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 mt-5">
                     <Image
                         src="/works/jmb/jmb1.webp"
                         alt="Website screenshot"
@@ -101,7 +101,7 @@ export const worksList = [
 
                 <img src="/works/odins/odins.svg" alt="" className="inline lg:hidden w-12 h-12 mb-5" />
                 <p className="hidden lg:inline uppercase text-2xl bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text font-bold tracking-tight text-transparent">Odin&apos;s Shoes</p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 mt-5">
                     <Image
                         src="/works/odins/odins1.webp"
                         alt="Website screenshot"
@@ -148,7 +148,7 @@ export const worksList = [
             <div>
                 <img src="/works/piramid/piramid.svg" alt="" className="inline lg:hidden w-12 h-12 mb-5" />
                 <p className="hidden lg:inline uppercase text-2xl bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text font-bold tracking-tight text-transparent">Piramid / Website</p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 mt-5">
                     <Image
                         src="/works/piramid/piramid2.webp"
                         alt="Website screenshot"
