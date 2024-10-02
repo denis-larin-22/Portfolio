@@ -2,9 +2,9 @@
 
 import { useRef } from "react";
 import { greenGradientText, slateBgText } from "../lib/text-styles";
-import { InfiniteMovingCards } from "./ui/InfiniteMovingCards ";
 import TagWrap from "./ui/TagWrap";
 import { motion, useInView } from "framer-motion";
+import { HoverEffect } from "./ui/CardHoverEffect";
 
 export function Reviews() {
     const ref = useRef(null);
@@ -26,46 +26,42 @@ export function Reviews() {
                 initial={{ opacity: 0 }}
                 animate={isInView && { opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="mt-28 rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden"
+                className="rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden"
             >
-                <InfiniteMovingCards
-                    items={testimonials}
-                    direction="right"
-                    speed="slow"
-                />
+                <HoverEffect items={projects} />
             </motion.section>
         </section >
     );
 }
 
-const testimonials = [
+
+export const projects = [
     {
-        quote:
-            "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-        name: "Charles Dickens",
-        title: "A Tale of Two Cities",
+        title: "Юлия",
+        subtitle: {
+            text: 'Julia Magic Beauty',
+            link: "https://julia-beauty.vercel.app/"
+        },
+        text:
+            "Сотрудничество с Денисом по созданию моего сайта-портфолио прошло на высшем уровне. Он внимательно выслушал все мои пожелания и сразу приступил к работе, быстро уловив мой стиль и идеи. Денис также помог подобрать современный и привлекательный дизайн, который отлично отражает мои работы. Я очень довольна результатом и уже получила множество положительных отзывов от клиентов!",
     },
     {
-        quote:
-            "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-        name: "William Shakespeare",
-        title: "Hamlet",
+        title: "Виталий",
+        subtitle: {
+            text: 'Odins shoes',
+            link: "https://odin-s-2-0.vercel.app/"
+        },
+        text:
+            "Сотрудничество с Денисом при разработке сайта-каталога было очень успешным. Изначально мы столкнулись с проблемой в администрировании сайта, и Денис предложил внедрить систему управления контентом, что полностью изменило ситуацию. Теперь обновление информации о товарах стало простым и быстрым процессом. Во время разработки все пожелания и замечания были соблюдены. Отдельная благодарность за выполнение поставленых задач иногда даже раньше поставленого срока. Результатом очень доволен!"
     },
     {
-        quote: "All that we see or seem is but a dream within a dream.",
-        name: "Edgar Allan Poe",
-        title: "A Dream Within a Dream",
+        title: "Сергей",
+        text:
+            "Обратился к Денису за помощью в исправлении ошибок в моем React приложении, и он сделал всё быстро и эффективно. Он быстро выявил проблемы, а после ещё и предложил дополнительные решения, которые улучшили функционал. Благодаря его помощи приложение теперь работает стабильно и даже значительно быстрее. Огромная благодарность за помощь.",
     },
     {
-        quote:
-            "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-        name: "Jane Austen",
-        title: "Pride and Prejudice",
-    },
-    {
-        quote:
-            "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-        name: "Herman Melville",
-        title: "Moby-Dick",
-    },
+        title: "Мария",
+        text:
+            "Обратилась за помощью обновить верстку, нужно было освежить внешний вид. Задача выполнена отлично, быстро и с учётом всех моих пожеланий. Отдельное большое спасибо за крутые визуальные эффекты, анимации а также предложение использовать библиотеку готовых элементов, что значительно ускорило процесс. Спасибо за обновление))",
+    }
 ];

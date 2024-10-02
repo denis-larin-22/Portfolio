@@ -36,20 +36,16 @@ function AboutMe() {
                         tag="p"
                     >
                         <motion.p style={getInView(0.4)}>
-                            I’m a <span className="font-bold">Front-End Developer</span> located in Ukraine. I have
-                            a serious passion for UI effects, animations and
-                            creating intuitive, dynamic user experiences.
+                            I am a <span className="font-bold">Front-End Developer</span> focused on creating responsive and dynamic websites and web applications using JavaScript, TypeScript, React, Next.js, and many other modern tools.
                         </motion.p>
                         <motion.p
                             style={getInView(0.6)}
                             className="py-3"
                         >
-                            Well-organised person, problem solver, independent
-                            employee with high attention to detail.
+                            I am result-oriented and always strive to deliver solutions that meet client requirements and uphold high standards of quality. I bring a creative mindset, a commitment to efficient coding practices, and the ability to adapt to new challenges, ensuring that projects are completed successfully and on time.
                         </motion.p>
                         <motion.p style={getInView(1.2)}>
-                            Interested in the entire frontend spectrum and
-                            working on ambitious projects with positive people.
+                            I enjoy working with animations, interactivity, and UI effects, blending technical expertise with creativity to enhance user experiences. I am punctual, persistent, and always open to new opportunities for growth.
                         </motion.p>
                     </TagWrap>
                 </motion.div>

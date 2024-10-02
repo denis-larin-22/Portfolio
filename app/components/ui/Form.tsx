@@ -73,7 +73,7 @@ function Form() {
                 }
             </AnimatePresence>
 
-            <motion.form className="w-full lg:w-[75%] mx-auto px-4 lg:px-[2em] py-4 lg:py-[1.6em] rounded-2xl bg-[#12121270] hover:ring-1 hover:ring-m-green-light duration-700">
+            <motion.form className="w-full lg:w-[75%] mx-auto px-4 lg:px-[2em] py-4 lg:py-[1.6em] rounded-b-2xl lg:rounded-2xl bg-m-grey-bg hover:ring-1 hover:ring-m-green-light duration-700">
                 <p className="text-lg md:text-2xl opacity-70 text-m-green">Follow the <span className="text-white"> white rabbit</span> and contact me</p>
                 <div className="text-xs md:text-base text-slate-300 flex flex-col">
                     <input
