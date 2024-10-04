@@ -4,7 +4,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import TagWrap from "./ui/TagWrap";
 import { greenGradientText, slateBgText } from "../lib/text-styles";
-import { HeroParallax } from "./ui/SkillsParallax";
 import Image from "next/image";
 import { skillsIcons } from "../lib/data/skills-icons";
 import { poppinsFont } from "../fonts";
@@ -50,9 +49,31 @@ function Skills() {
         transition: `all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) ${delay}s`,
     });
 
+
+    const container = {
+        hidden: { opacity: 1, scale: 0 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.2
+            }
+        }
+    };
+
+    const item = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1
+        }
+    };
+
+
     return (
-        <section id="skills" ref={refSkills} className="relative min-h-screen mx-auto mt-9 md:mt-40 flex flex-col ">
-            <TagWrap tag='h3' className="container flex flex-col gap-2" appearanceDelay={1}>
+        <section id="skills" ref={refSkills} className="container relative min-h-screen mx-auto mt-9 md:mt-40 flex flex-col ">
+            <TagWrap tag='h3' className=" flex flex-col gap-2" appearanceDelay={1}>
                 <motion.h3
                     style={getInViewSkills(0.2)}
                     className={slateBgText + " text-5xl lg:text-[78px] font-bold pb-2"}
@@ -62,30 +83,30 @@ function Skills() {
             </TagWrap>
 
             <motion.div
-                initial={{ opacity: 0, y: 150 }}
-                animate={isInViewSkills && { opacity: 1, y: 0 }}
-                transition={{ duration: 1.5, delay: 0.5 }}
+                variants={container}
+                initial="hidden"
+                animate={isInViewSkills && "visible"}
+                className="flex flex-wrap justify-center gap-4 mt-5"
             >
-                <div className="hidden lg:block">
-                    <HeroParallax list={skillsIcons} />
-                </div>
-                <div className="block lg:hidden h-full w-full overflow-x-hidden absolute top-[10%]">
-                    <ul className="grid grid-cols-4 gap-5 rotate-[25deg] relative top-[15%] z-0 scale-125 opacity-10">
-                        {skillsIcons.map((skill) => (
-                            <li key={skill.title}>
-                                <Image
-                                    alt={skill.title}
-                                    src={skill.thumbnail}
-                                    width={70}
-                                    height={70}
-                                />
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                {skillsIcons.map((skill, index) => (
+                    <motion.a
+                        key={index}
+                        href={skill.link}
+                        className="inline-flex gap-2 w-fit px-3 h-12 py-2 rounded-md bg-m-grey-bg items-center border-2 border-m-grey-bg hover:bg-m-green/40 hover:border-m-green duration-300"
+                        variants={item}
+                    >
+                        <Image
+                            alt="Skill icon"
+                            src={skill.thumbnail}
+                            width={30}
+                            height={30}
+                        />
+                        <p className="">{skill.title}</p>
+                    </motion.a>
+                ))}
             </motion.div>
 
-            <TagWrap tag="section" className="container my-10" appearanceDelay={1}>
+            <TagWrap tag="section" className=" my-10" appearanceDelay={1}>
                 <div ref={refGroups} className="flex flex-wrap gap-4 justify-between mb-5">
                     {skillsBySections.map((skill, index) => (
                         <motion.div
