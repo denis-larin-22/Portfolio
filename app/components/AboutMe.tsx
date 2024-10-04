@@ -10,7 +10,7 @@ function AboutMe() {
     const refAboutMe = useRef(null);
     const isInViewAboutMe = useInView(refAboutMe, { once: true });
     const getInView = (delay = 0) => ({
-        transform: isInViewAboutMe ? "translateY(0) scale(1)" : "translateY(150px) scale(1.1)",
+        transform: isInViewAboutMe ? "translateY(0) " : "translateY(50px)",
         opacity: isInViewAboutMe ? 1 : 0,
         transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${delay}s`,
     });

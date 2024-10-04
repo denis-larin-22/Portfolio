@@ -1,29 +1,13 @@
-'use client'
-
-import { useInView, motion } from "framer-motion";
-import { useRef } from "react";
 import { SparklesCore } from "./Sparkles";
 
-export function GetInTouch() {
-    const refSparkles = useRef(null);
-    const isInViewSparkles = useInView(refSparkles, { once: true });
+interface IProps {
+    className?: string
+}
 
+export function ShineSparkles({ className = '' }: IProps) {
     return (
-        <div ref={refSparkles} className="h-[15rem] w-full flex flex-col items-center justify-center overflow-hidden rounded-md">
-            <motion.h5
-                initial={{ opacity: 0 }}
-                animate={isInViewSparkles && { opacity: 1 }}
-                transition={{ duration: 1.5, delay: 0.5 }}
-                className="mb-5 text-3xl md:text-5xl text-center uppercase bg-gradient-to-br from-slate-300 to-slate-900 bg-clip-text tracking-tight text-transparent"
-            >
-                let&apos;s get in touch
-            </motion.h5>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={isInViewSparkles && { opacity: 1 }}
-                transition={{ duration: 2 }}
-                className="w-[40rem] h-40 relative"
-            >
+        <div className={"h-fit w-full flex flex-col items-center justify-center overflow-hidden rounded-md " + className}>
+            <div className="w-[40rem] h-40 relative">
                 {/* Gradients */}
                 <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-m-green to-transparent h-[2px] w-3/4 blur-sm" />
                 <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-m-green to-transparent h-px w-3/4" />
@@ -42,7 +26,7 @@ export function GetInTouch() {
 
                 {/* Radial Gradient to prevent sharp edges */}
                 <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
-            </motion.div>
+            </div>
         </div>
     )
-}
+};

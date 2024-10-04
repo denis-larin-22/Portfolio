@@ -21,8 +21,7 @@ export const HoverEffect = ({
     return (
         <div
             className={cn(
-                // "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 py-10",
-                "columns-1 lg:columns-2 py-10",
+                "columns-1 lg:columns-2 py-2",
                 className
             )}
         >
@@ -59,7 +58,7 @@ export const HoverEffect = ({
                                 {item.subtitle.text}
                             </a>}
                         </div>
-                        <p className="italic text-xs md:text-sm leading-[1.6] text-slate-300 font-normal">
+                        <p className="italic text-[10px] md:text-sm leading-[1.6] text-slate-300 font-normal">
                             {item.text}
                         </p>
                         <span className="inline-flex gap-0.5">
@@ -84,7 +83,7 @@ export const Card = ({
     return (
         <div
             className={cn(
-                "rounded-2xl h-full w-full p-4 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+                "rounded-2xl h-full w-full p-1 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
                 className
             )}
         >

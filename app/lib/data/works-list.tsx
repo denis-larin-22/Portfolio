@@ -182,7 +182,6 @@ export const worksList = [
                     </li>
                 </ul>
                 <div className="flex items-center gap-2 text-xs md:text-base">
-                    <a href="https://piramidspace.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-5 w-fit md:w-40 h-7 md:h-10 whitespace-nowrap rounded-md border-2 border-slate-100">Open repository</a>
                     <a href="https://piramidspace.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-5 w-fit md:w-40 h-7 md:h-10 rounded-md bg-slate-100 text-black">Visit</a>
                 </div>
             </div>
