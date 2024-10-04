@@ -169,16 +169,19 @@ export const worksList = [
                 </p>
                 <ul className="my-4 md:my-7 flex items-center gap-4">
                     <li>
-                        <img src="/icons/html.svg" alt="HTML" className="w-6 md:w-10 h-6 md:h-10" />
+                        <img src="/icons/nextjs.svg" alt="Next.js" className="w-6 md:w-10 h-6 md:h-10" />
                     </li>
                     <li>
-                        <img src="/icons/css.svg" alt="CSS" className="w-6 md:w-10 h-6 md:h-10" />
+                        <img src="/icons/typescript.svg" alt="TypeScript" className="w-6 md:w-10 h-6 md:h-10" />
                     </li>
                     <li>
-                        <img src="/icons/sass.svg" alt="Sass" className="w-6 md:w-10 h-6 md:h-10" />
+                        <img src="/icons/tailwindcss.svg" alt="Tailwind CSS" className="w-6 md:w-10 h-6 md:h-10" />
                     </li>
                     <li>
-                        <img src="/icons/bootstrap-purple.svg" alt="Bootstrap" className="w-6 md:w-10 h-6 md:h-10" />
+                        <img src="/icons/contentful.svg" alt="contentful" className="w-6 md:w-10 h-6 md:h-10" />
+                    </li>
+                    <li>
+                        <img src="/icons/framer.svg" alt="framer" className="w-6 md:w-10 h-6 md:h-10" />
                     </li>
                 </ul>
                 <div className="flex items-center gap-2 text-xs md:text-base">

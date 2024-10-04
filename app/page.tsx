@@ -11,7 +11,7 @@ import { Footer } from "./components/Footer";
 
 export default function Home() {
   return (
-    <div >
+    <div>
       <MatrixBackground />
 
       <Header />
@@ -23,6 +23,6 @@ export default function Home() {
       <Contacts />
       <Hands />
       <Footer />
-    </div >
+    </div>
   );
 }
