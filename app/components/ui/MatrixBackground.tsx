@@ -76,7 +76,7 @@ export const MatrixBackground: React.FC<IMatrixBackgroundProps> = ({
         }
     }, [color, webVariantBg]);
 
-    const thisClassName = `fixed top-0 -z-10 bg-[#1D1D1D] brightness-50 ${custom_class}`;
+    const thisClassName = `fixed top-0 -z-10 h-dvh bg-[#1D1D1D] brightness-50 ${custom_class}`;
 
     return <canvas className={thisClassName} ref={ref} />;
 };
