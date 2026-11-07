@@ -7,8 +7,11 @@ import { greenGradientText, slateBgText } from "../lib/text-styles";
 import Image from "next/image";
 import { skillsIcons } from "../lib/data/skills-icons";
 import { poppinsFont } from "../fonts";
+import { useLanguage } from "../lib/LanguageContext";
 
 function Skills() {
+    const { lang, t } = useLanguage();
+
     const skillsBySections = [
         {
             title: "Layout",
@@ -23,12 +26,12 @@ function Skills() {
         {
             title: "Development",
             icon: "/icons/developing.svg",
-            list: ["ReactJS", "NextJS", "Redux", "npm"]
+            list: ["ReactJS", "React Native", "NextJS", "Redux", "npm"]
         },
         {
             title: "Tools",
             icon: "/icons/tools.svg",
-            list: ["Redux", "Next UI", "Material UI", "Bootstrap", "Git", "Framer Motion", "Contentful", "Firebase", "Figma"]
+            list: ["Redux", "Next UI", "Material UI", "Bootstrap", "Git", "Framer Motion", "Contentful", "Firebase", "Figma", "Expo", "Telegram Bot API", "Claude AI", "ChatGPT", "Grok AI", "Gemini AI"]
         }
     ]
 
@@ -78,7 +81,11 @@ function Skills() {
                     style={getInViewSkills(0.2)}
                     className={slateBgText + " text-5xl lg:text-[78px] font-bold pb-2"}
                 >
-                    <span className={greenGradientText}>M</span>y sk<span className={greenGradientText}>i</span>lls
+                    {lang === 'en' ?
+                        <><span className={greenGradientText}>M</span>y sk<span className={greenGradientText}>i</span>lls</>
+                        :
+                        <><span className={greenGradientText}>М</span>ої нав<span className={greenGradientText}>и</span>чки</>
+                    }
                 </motion.h3>
             </TagWrap>
 
@@ -114,7 +121,7 @@ function Skills() {
                             className="relative flex flex-col"
                             style={getInViewGroups(0.3 + (index / 10))}
                         >
-                            <p className={greenGradientText + " relative z-10 text-2xl lg:text-4xl font-bold my-5 lg:my-7"}>{skill.title}</p>
+                            <p className={greenGradientText + " relative z-10 text-2xl lg:text-4xl font-bold my-5 lg:my-7"}>{t.skills[index]}</p>
                             <img src={skill.icon} alt="Icon" className="hidden lg:inline-block absolute top-0 right-0 lg:left-3/4 w-12 lg:w-24 h-12 lg:h-24 z-0 brightness-[5%]" />
                             <ul className={poppinsFont.className + " relative z-10 text-md lg:text-lg font-light text-slate-400 flex flex-col items-start gap-1 cursor-default"}>
                                 {skill.list.map((item, index) => (

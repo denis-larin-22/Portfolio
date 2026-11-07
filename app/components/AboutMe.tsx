@@ -4,8 +4,11 @@ import { useRef } from "react";
 import TagWrap from "./ui/TagWrap";
 import { motion, useInView } from "framer-motion";
 import { greenGradientText, slateBgText } from "../lib/text-styles";
+import { useLanguage } from "../lib/LanguageContext";
 
 function AboutMe() {
+    const { lang, t } = useLanguage();
+
     // About me wrap
     const refAboutMe = useRef(null);
     const isInViewAboutMe = useInView(refAboutMe, { once: true });
@@ -26,7 +29,13 @@ function AboutMe() {
                     style={getInView()}
                 >
                     <TagWrap tag="h2" className="flex flex-col gap-2">
-                        <h2 className={slateBgText + " text-5xl lg:text-[78px] font-bold"}><span className={greenGradientText}>A</span>bout <span className={greenGradientText}>m</span>e</h2>
+                        <h2 className={slateBgText + " text-5xl lg:text-[78px] font-bold"}>
+                            {lang === 'en' ?
+                                <><span className={greenGradientText}>A</span>bout <span className={greenGradientText}>m</span>e</>
+                                :
+                                <><span className={greenGradientText}>П</span>ро <span className={greenGradientText}>м</span>ене</>
+                            }
+                        </h2>
                     </TagWrap>
                 </motion.div>
 
@@ -36,16 +45,16 @@ function AboutMe() {
                         tag="p"
                     >
                         <motion.p style={getInView(0.4)}>
-                            I am a <span className="font-bold">Front-End Developer</span> focused on creating responsive and dynamic websites and web applications using JavaScript, TypeScript, React, Next.js, and many other modern tools.
+                            {t.about.start} <span className="font-bold">{t.about.role}</span>{t.about.end}
                         </motion.p>
                         <motion.p
                             style={getInView(0.6)}
                             className="py-3"
                         >
-                            I am result-oriented and always strive to deliver solutions that meet client requirements and uphold high standards of quality. I bring a creative mindset, a commitment to efficient coding practices, and the ability to adapt to new challenges, ensuring that projects are completed successfully and on time.
+                            {t.about.text[0]}
                         </motion.p>
                         <motion.p style={getInView(1.2)}>
-                            I enjoy working with animations, interactivity, and UI effects, blending technical expertise with creativity to enhance user experiences. I am punctual, persistent, and always open to new opportunities for growth.
+                            {t.about.text[1]}
                         </motion.p>
                     </TagWrap>
                 </motion.div>

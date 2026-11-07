@@ -3,8 +3,27 @@
 import { poppinsFont } from "../fonts";
 import { links } from "../lib/data/links-list";
 import { motion } from "framer-motion";
+import { Language, useLanguage } from "../lib/LanguageContext";
 
 function Header() {
+    const { lang, setLang, t } = useLanguage();
+    const languages: Language[] = ['en', 'ua'];
+
+    const languageSwitcher = (
+        <div className="ml-10 h-7 text-sm flex items-center gap-1.5">
+            <img src="/images/language-icon.svg" alt="Laguage button" className="fill-m-green" />
+            {languages.map((item) => (
+                <button
+                    key={item}
+                    onClick={() => setLang(item)}
+                    className={`uppercase hover:text-m-green duration-150 ${lang === item ? 'text-m-green text-glow-green' : 'opacity-50'}`}
+                >
+                    {item}
+                </button>
+            ))}
+        </div>
+    )
+
     return (
         <motion.header
             initial={{ opacity: 0, y: -50 }}
@@ -18,7 +37,7 @@ function Header() {
                     alt="Avatar"
                     className="w-10 md:w-14 h-10 md:h-14 rounded-full"
                 />
-                <p className={`${poppinsFont.className} text-lg md:text-xl font-bold`}><span className="text-m-green text-glow-green">Denis</span> Larin</p>
+                <p className={`${poppinsFont.className} text-lg md:text-xl font-bold`}><span className="text-m-green text-glow-green">{t.name[0]}</span> {t.name[1]}</p>
             </div>
 
             {/* Desktop */}
@@ -30,20 +49,16 @@ function Header() {
                         target={item.text === 'Blog' ? '_blank' : '_parent'}
                         className="hover:text-glow-green hover:text-m-green duration-500"
                     >
-                        <span className='text-m-green-light group-hover:text-black'>{item.text[0]}</span>
-                        {item.text.slice(1)}
+                        <span className='text-m-green-light group-hover:text-black'>{t.nav[index][0]}</span>
+                        {t.nav[index].slice(1)}
                     </a>
                 ))}
-                <button className="ml-10 w-7 h-7 text-sm flex items-center gap-0.5 group hover:text-m-green duration-150">
-                    EN
-                    <img src="/images/language-icon.svg" alt="Laguage button" className="fill-m-green" />
-                </button>
+                {languageSwitcher}
             </nav>
 
-            <button className="ml-10 w-7 h-7 text-sm flex lg:hidden items-center gap-0.5 group hover:text-m-green duration-150">
-                EN
-                <img src="/images/language-icon.svg" alt="Laguage button" className="fill-m-green" />
-            </button>
+            <div className="lg:hidden">
+                {languageSwitcher}
+            </div>
         </motion.header>
     )
 };

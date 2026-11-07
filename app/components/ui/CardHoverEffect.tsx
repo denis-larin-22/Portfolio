@@ -58,7 +58,7 @@ export const HoverEffect = ({
                                 {item.subtitle.text}
                             </a>}
                         </div>
-                        <p className="italic text-[10px] md:text-sm leading-[1.6] text-slate-300 font-normal">
+                        <p className="italic text-[10px] md:text-sm leading-[1.6] text-slate-300 font-normal whitespace-pre-line">
                             {item.text}
                         </p>
                         <span className="inline-flex gap-0.5">

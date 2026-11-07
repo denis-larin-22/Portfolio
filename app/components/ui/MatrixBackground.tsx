@@ -69,14 +69,29 @@ export const MatrixBackground: React.FC<IMatrixBackgroundProps> = ({
     const ref = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
-        const render = renderMatrix(ref, color, webVariantBg);
-        if (render) {
-            const intervalId = setInterval(render, 45);
-            return () => clearInterval(intervalId);
-        }
+        let intervalId: ReturnType<typeof setInterval>;
+        let lastWidth = 0;
+
+        const start = () => {
+            // on mobile resize fires when the address bar hides, so restart only if width changed
+            if (window.innerWidth === lastWidth) return;
+            lastWidth = window.innerWidth;
+
+            clearInterval(intervalId);
+            const render = renderMatrix(ref, color, webVariantBg);
+            if (render) intervalId = setInterval(render, 45);
+        };
+
+        start();
+        window.addEventListener('resize', start);
+
+        return () => {
+            clearInterval(intervalId);
+            window.removeEventListener('resize', start);
+        };
     }, [color, webVariantBg]);
 
-    const thisClassName = `fixed top-0 -z-10 h-dvh bg-[#1D1D1D] brightness-50 ${custom_class}`;
+    const thisClassName = `fixed top-0 left-0 w-full -z-10 h-dvh bg-[#1D1D1D] brightness-50 ${custom_class}`;
 
     return <canvas className={thisClassName} ref={ref} />;
 };

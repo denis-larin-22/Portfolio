@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ralewayFont } from "./fonts";
+import { montserratFont, ralewayFont } from "./fonts";
+import { LanguageProvider } from "./lib/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Denis Larin",
@@ -18,9 +19,11 @@ export default function RootLayout({
         <meta name="freelancehunt" content="a19f3ebefb38a97" />
       </head>
       <body
-        className={`${ralewayFont.className} antialiased text-slate-300 bg-m-dark`}
+        className={`${ralewayFont.className} ${montserratFont.variable} antialiased text-slate-300 bg-m-dark`}
       >
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

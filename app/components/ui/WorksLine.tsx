@@ -9,6 +9,7 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import TagWrap from "./TagWrap";
 import { slateBgText } from "@/app/lib/text-styles";
+import { useLanguage } from "@/app/lib/LanguageContext";
 
 interface TimelineEntry {
     titleImage: string;
@@ -19,6 +20,7 @@ export const WorksLine = ({ data }: { data: TimelineEntry[] }) => {
     const ref = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [height, setHeight] = useState(0);
+    const { lang } = useLanguage();
 
     const isInView = useInView(ref, { once: true });
 
@@ -50,7 +52,11 @@ export const WorksLine = ({ data }: { data: TimelineEntry[] }) => {
                     transition={{ duration: 1 }}
                     className={slateBgText + " text-5xl lg:text-[78px] font-bold pb-2"}
                 >
-                    Wo<span className="bg-gradient-to-br from-black to-m-green bg-clip-text tracking-tight text-transparent">r</span>ks
+                    {lang === 'en' ?
+                        <>Wo<span className="bg-gradient-to-br from-black to-m-green bg-clip-text tracking-tight text-transparent">r</span>ks</>
+                        :
+                        <>Ро<span className="bg-gradient-to-br from-black to-m-green bg-clip-text tracking-tight text-transparent">б</span>оти</>
+                    }
                 </motion.h4>
             </TagWrap>
 

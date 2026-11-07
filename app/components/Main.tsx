@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 import TagWrap from "./ui/TagWrap";
 import Links from "./ui/Links";
 import { Rabbit } from "./ui/Rabbit";
+import { useLanguage } from "../lib/LanguageContext";
 
 function Main() {
+    const { lang, t } = useLanguage();
     const keyWords = ['matrix', 'js', 'ts', 'react', "nextjs", 'web'];
-    const greetings = ['Hi,', 'I`m Denis', 'web', 'developer'];
+    const greetings = t.greetings;
     //Framer animation
     const variants = {
         visible: { opacity: 1, transition: { delay: 2, duration: 0.7 } },
@@ -61,7 +63,7 @@ function Main() {
                                 animate="visible"
                                 variants={variants}
                                 transition={{ delay: 2, duration: 0.7 }}
-                                className="text-6xl md:text-8xl leading-[105%]"
+                                className={`text-6xl md:text-8xl leading-[105%] ${lang === 'ua' ? 'max-[380px]:text-[52px]' : ''}`}
                             >
                                 <WordAnimate word={word} delay={true} />
                             </motion.p>
@@ -70,7 +72,7 @@ function Main() {
                 </div>
             </TagWrap>
             <TagWrap tag="p" className="mt-7 flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-5 mb-10" appearanceDelay={2}>
-                <p className="typewriter text-xl font-medium"><span className=" text-m-green">Front End</span> Developer /</p>
+                <p className="typewriter text-xl font-medium"><span className=" text-m-green">Front End</span> {t.position} /</p>
             </TagWrap>
             <Links delay={4} />
 

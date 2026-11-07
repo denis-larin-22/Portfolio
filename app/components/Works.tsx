@@ -1,12 +1,16 @@
+'use client'
+
 import React from "react";
 import { WorksLine } from "./ui/WorksLine";
-import { worksList } from "../lib/data/works-list";
+import { getWorksList } from "../lib/data/works-list";
+import { useLanguage } from "../lib/LanguageContext";
 
 function Works() {
+    const { lang } = useLanguage();
 
     return (
         <div className="w-full">
-            <WorksLine data={worksList} />
+            <WorksLine data={getWorksList(lang)} />
         </div>
     );
 }

@@ -2,10 +2,11 @@
 
 import { FormEvent, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 import { ReportMessage } from "./ReportMessage";
+import { useLanguage } from "@/app/lib/LanguageContext";
 
 function Form() {
+    const { t } = useLanguage();
     const inputStyles = 'bg-[#000] outline-none border-[1px] border-[#121212] rounded-2xl px-2.5 md:px-5 py-2.5 focus:border-m-green-light duration-500';
     const initInputState = {
         name: '',
@@ -18,39 +19,27 @@ function Form() {
         status: true
     });
 
+    const showStatus = (status: boolean) => {
+        setSendingStatus({ isVissible: true, status });
+        setTimeout(() => {
+            setSendingStatus({ isVissible: false, status: true });
+            if (status) setInputValue(initInputState);
+        }, 3000)
+    }
+
     const btnHandler = (e: FormEvent) => {
         e.preventDefault();
-        console.log(inputValue);
 
-        const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-        const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-        const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-        if (serviceID && templateID && publicKey) {
-            emailjs.send(serviceID, templateID, inputValue, { publicKey: publicKey })
-                .then(() => {
-                    setSendingStatus({ isVissible: true, status: true });
-                    setTimeout(() => {
-                        // Sending status pop-up
-                        setSendingStatus({ isVissible: false, status: true });
-                        // Clear form inputs
-                        setInputValue(initInputState);
-                    }, 3000)
-                })
-                .catch((err) => {
-                    console.log('FAILED...', err);
-                    setSendingStatus({ isVissible: true, status: false });
-                    setTimeout(() => {
-                        setSendingStatus({ isVissible: false, status: true });
-                    }, 3000)
-                })
-        } else {
-            console.log('No keys found for the request!');
-            setSendingStatus({ isVissible: true, status: false });
-            setTimeout(() => {
-                setSendingStatus({ isVissible: false, status: true });
-            }, 3000)
-        }
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(inputValue)
+        })
+            .then((res) => showStatus(res.ok))
+            .catch((err) => {
+                console.log('FAILED...', err);
+                showStatus(false);
+            })
     }
 
     return (
@@ -66,33 +55,33 @@ function Form() {
                     >
                         <ReportMessage
                             isSuccess={sendingStatus.status}
-                            successMessage="Sent"
-                            errorMessage="Something went wrong"
+                            successMessage={t.form.sent}
+                            errorMessage={t.form.error}
                         />
                     </motion.div>
                 }
             </AnimatePresence>
 
             <motion.form className="w-full lg:w-[75%] mx-auto px-4 lg:px-[2em] py-4 lg:py-[1.6em]">
-                <p className="text-lg md:text-2xl text-center opacity-70">Contact me</p>
+                <p className="text-lg md:text-2xl text-center opacity-70">{t.form.title}</p>
                 <div className="text-xs md:text-base text-slate-300 flex flex-col">
                     <input
                         type="text"
                         className={inputStyles + " mt-5"}
-                        placeholder="Name"
+                        placeholder={t.form.name}
                         value={inputValue.name}
                         onChange={(e) => setInputValue({ ...inputValue, name: e.target.value })}
                     />
                     <input
                         type="email"
                         className={inputStyles + " my-2 md:my-5"}
-                        placeholder="Email"
+                        placeholder={t.form.email}
                         value={inputValue.email}
                         onChange={(e) => setInputValue({ ...inputValue, email: e.target.value })}
                     />
                     <textarea
                         rows={5} cols={33}
-                        placeholder="Your message"
+                        placeholder={t.form.message}
                         className={inputStyles}
                         value={inputValue.text}
                         onChange={(e) => setInputValue({ ...inputValue, text: e.target.value })}
@@ -107,7 +96,7 @@ function Form() {
                                 onClick={btnHandler}
                                 className="py-3 mt-5 rounded-md border-2 border-m-green/40 max-w-64 w-full self-center text-slate-300 hover:bg-m-green/50 hover:text-black duration-200"
                             >
-                                Send
+                                {t.form.send}
                             </motion.button>
                         }
                     </AnimatePresence>

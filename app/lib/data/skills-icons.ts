@@ -29,6 +29,18 @@ export const skillsIcons: SkillIconsList = [
     },
 
     {
+        title: "React Native",
+        link: "https://reactnative.dev/",
+        thumbnail:
+            "/icons/react.svg",
+    },
+    {
+        title: "Expo",
+        link: "https://expo.dev/",
+        thumbnail:
+            "/icons/expo.svg",
+    },
+    {
         title: "Next JS",
         link: "https://nextjs.org/",
         thumbnail:
@@ -94,6 +106,12 @@ export const skillsIcons: SkillIconsList = [
         link: "https://www.contentful.com/",
         thumbnail:
             "/icons/contentful.svg",
+    },
+    {
+        title: "Telegram Bot API",
+        link: "https://core.telegram.org/bots",
+        thumbnail:
+            "/icons/telegram.svg",
     },
     {
         title: "npm",
